@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">PDF CONVERTER</a>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+<h1>Upload File</h1>
+
+<form class="form-group"  method="post"  th:action="@{/upload}" enctype="multipart/form-data">
+    <input type="file" class="form-control-file", name="file"/>
+    <button type="submit", class="btn btn-primary">Submit</button>
+</form>
+
+
+</body>
+</html>
