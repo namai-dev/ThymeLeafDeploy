@@ -74,6 +74,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>amo_docker</finalName>
 	</build>
 
 </project>
