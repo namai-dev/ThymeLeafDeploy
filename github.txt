@@ -1,2 +1,2 @@
-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
+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
 git remote add origin https://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@github.com/namai-dev/microserviceSpringBoot.git

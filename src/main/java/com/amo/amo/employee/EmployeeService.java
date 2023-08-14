@@ -17,4 +17,9 @@ public class EmployeeService {
     public List<Employee>employeeList(){
         return employeeRepo.findAll();
     }
+
+
+    public void update(Long id){
+        Employee employee = employeeRepo.findById(id).get();
+    }
 }
