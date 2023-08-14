@@ -4,7 +4,7 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn clean package -DskipTests
 COPY src ./src
-RUN mvn package -DskipTests
+
 
 # Use a smaller base image to run the application
 FROM adoptopenjdk:11-jre-hotspot
