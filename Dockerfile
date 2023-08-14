@@ -9,7 +9,7 @@ COPY pom.xml .
 
 # Run Maven wrapper to build the project (with necessary profiles)
 RUN chmod +x mvnw
-RUN ./mvnw clean package -Pprod -DskipTests
+RUN mvnw clean package -Pprod -DskipTests
 
 # Package stage
 FROM openjdk:11-jdk-slim
