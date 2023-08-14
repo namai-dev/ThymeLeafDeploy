@@ -1,13 +1,15 @@
-FROM openjdk:17
+#
+# Build stage
+#
+FROM maven:3.8.2-jdk-11 AS build
+COPY . .
+RUN mvn clean package -Pprod -DskipTests
 
-# Create a directory within the container
-WORKDIR /app
-
-# Copy the JAR file into the container's directory
-COPY target/amo_docker.jar amo_docker.jar
-
-# Expose the port your Spring Boot application is listening on
+#
+# Package stage
+#
+FROM openjdk:11-jdk-slim
+COPY --from=build /target/amo_docker.jar amo_docker.jar
+# ENV PORT=8080
 EXPOSE 8080
-
-# Run your application
-CMD ["java", "-jar", "amo_docker.jar"]
+ENTRYPOINT ["java","-jar","amo_docker.jar"]
