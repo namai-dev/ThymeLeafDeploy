@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Manage Employee</a>
+  <button class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+<h1>ADD Employee</h1>
+
+<div class="container">
+  <form class="form-group"  method="post"  th:action="@{/addEmployee}" th:object="${employee}" >
+
+
+    <input type="text"  class="form-control col-4 mb-4"  th:field="*{name}" />
+    <input type="text" class="form-control col-4 mb-4" th:field="*{email}"/>
+    <input type="number" class="form-control col-4 mb-4 " th:field="*{contact}"/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+  </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Manage Employee</a>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+  <div class="container">
+      <h2>Employee List</h2>
+      <a class="btn btn-primary" th:href="@{/addEmployeeForm}">Add Employee </a>
+      <br/>
+      <table class="table table-striped ">
+          <thead class="thead-light">
+         <tr>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Conduct</th>
+         </tr>
+          </thead>
+          <tbody>
+          <tr th:each="employee: ${employees}">
+              <td  th:text="${employee.name}"></td>
+              <td  th:text="${employee.email}"></td>
+              <td  th:text="${employee.contact}"></td>
+
+          </tr>
+
+
+
+          </tbody>
+
+
+
+      </table>
+
+
+  </div>
+
+
+
+</body>
+</html>
