@@ -1,27 +1,14 @@
-# Build stage
-FROM openjdk:11-jdk-slim AS build
-
-# Set the working directory in the container
+# Use a base image with Maven to build the application
+FROM maven:3.9.4-openjdk-17 AS build
 WORKDIR /app
-
-# Copy only the POM file to leverage Docker caching
 COPY pom.xml .
+RUN mvn clean package -DskipTests
+COPY src ./src
+RUN mvn package -DskipTests
 
-# Run Maven wrapper to build the project (with necessary profiles)
-RUN chmod +x mvnw
-RUN mvnw clean package -Pprod -DskipTests
-
-# Package stage
-FROM openjdk:11-jdk-slim
-
-# Set the working directory in the container
+# Use a smaller base image to run the application
+FROM adoptopenjdk:17-jre-hotspot
 WORKDIR /app
-
-# Copy the JAR file from the build stage
-COPY --from=build /app/target/amo_docker.jar amo_docker.jar
-
-# Expose the port your Spring Boot application is listening on
+COPY --from=build /app/target/amo_docker.jar app.jar
 EXPOSE 8080
-
-# Run your application
-ENTRYPOINT ["java", "-jar", "amo_docker.jar"]
+CMD ["java", "-jar", "app.jar"]
