@@ -22,4 +22,11 @@ public class EmployeeService {
     public void update(Long id){
         Employee employee = employeeRepo.findById(id).get();
     }
+
+    public void deleteEmployee(Long id){
+        Employee employee = employeeRepo.findById(id).get();
+        if(employee == null){
+            throw new IllegalArgumentException("User not found");
+        }
+    }
 }
