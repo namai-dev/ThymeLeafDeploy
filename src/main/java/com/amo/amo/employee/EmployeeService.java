@@ -18,10 +18,18 @@ public class EmployeeService {
         return employeeRepo.findAll();
     }
 
-
-    public void update(Long id){
-        Employee employee = employeeRepo.findById(id).get();
+    public void update(Long id, String name, String email, Long cotact){
+         Employee employee = employeeRepo.findById(id).get();
+        if(employee == null){
+            throw new IllegalArgumentException("Emloyee not found");
+        }
+        employee.setContact(cotact);
+        employee.setEmail(email);
+        employee.setName(name);
     }
+
+
+  
 
     public void deleteEmployee(Long id){
         Employee employee = employeeRepo.findById(id).get();
