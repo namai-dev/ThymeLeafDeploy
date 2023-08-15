@@ -28,5 +28,6 @@ public class EmployeeService {
         if(employee == null){
             throw new IllegalArgumentException("User not found");
         }
+        employeeRepo.deleteById(id);
     }
 }
