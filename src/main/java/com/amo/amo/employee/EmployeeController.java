@@ -24,7 +24,7 @@ public class EmployeeController {
         return employeeService.employeeList();
     }
 
-    @DeleteMapping
+    @GetMapping(path = "/deleteEmployee")
     private String deleteEmployee(@RequestParam Long id){
         employeeService.deleteEmployee(id);
         return "redirect:/";

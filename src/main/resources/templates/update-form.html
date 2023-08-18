@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-<head>
-    <meta charset="UTF-8">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">PDF CONVERTER</a>
-    <button class="navbar-toggler" type="button">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">PDF CONVERTER</a>
+      <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
+    </nav>
+    <h1>Update Employee</h1>
 
-</nav>
-<h1>Update Employee</h1>
-
-<form class="form-group"  method="post"  th:action="@{/addEmployee}" th:object="${employee}" >
-
-
-    <input type="text"  class="form-control col-4 mb-4"  th:field="*{name}" />
-    <input type="text" class="form-control col-4 mb-4" th:field="*{email}"/>
-    <input type="number" class="form-control col-4 mb-4 " th:field="*{contact}"/>
-    <input type="hidden" th:field="*{id}">
-    <button type="submit" class="btn btn-primary">Submit</button>
-
-
-</form>
-
-
-
-
-</body>
+    <form
+      class="form-group"
+      method="post"
+      th:action="@{/addEmployee}"
+      th:object="${employee}"
+    >
+      <input
+        type="text"
+        class="form-control col-4 mb-4"
+        th:field="*{name}"
+        required
+      />
+      <input
+        type="text"
+        class="form-control col-4 mb-4"
+        th:field="*{email}"
+        required
+      />
+      <input
+        type="number"
+        class="form-control col-4 mb-4"
+        th:field="*{contact}"
+        required
+      />
+      <input type="hidden" th:field="*{id}" />
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a th:href="@{/}" class="btn btn-primary">Back to List</a>
+    </form>
+  </body>
 </html>
