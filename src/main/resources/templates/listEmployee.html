@@ -27,9 +27,12 @@
           </thead>
           <tbody>
           <tr th:each="employee: ${employees}">
+
               <td  th:text="${employee.name}"></td>
               <td  th:text="${employee.email}"></td>
               <td  th:text="${employee.contact}"></td>
+              <td ><a th:href="@{/updateEmployeeForm(employeeId=${employee.id})}" class="btn btn-primary" >Update</a></td>
+              <td><button class="btn btn-danger">Delete</button></td>
 
           </tr>
 
