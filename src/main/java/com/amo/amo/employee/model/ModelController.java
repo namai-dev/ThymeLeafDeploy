@@ -44,4 +44,11 @@ public class ModelController {
         view.addObject("employee", employee);
         return view;
     }
+
+    @GetMapping(path = "/search-form")
+    public ModelAndView searchEmployee(){
+        ModelAndView view = new ModelAndView("search-form");
+
+        return view;
+    }
 }

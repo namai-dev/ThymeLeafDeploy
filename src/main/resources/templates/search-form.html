@@ -16,12 +16,23 @@
     <div class="container">
       <form method="get" class="form-group">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Enter email" />
-          <span class="input-group-addon"
-            ><button type="submit">Search</button>
+          <input type="search" class="form-control" placeholder="Enter email" />
+          <span class="input-group-append">
+            <button class="btn btn-outline-secondary bg-primary">search</button>
           </span>
         </div>
       </form>
+
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Contact</td>
+          </tr>
+        </thead>
+      </table>
+      <a th:href="@{/}" class="btn btn-primary">Back to List</a>
     </div>
   </body>
 </html>
