@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -48,7 +49,16 @@ public class ModelController {
     @GetMapping(path = "/search-form")
     public ModelAndView searchEmployee(){
         ModelAndView view = new ModelAndView("search-form");
-
+         List<Employee>employees = new ArrayList<>();
+         view.addObject("employees", employees);
         return view;
     }
+    // @GetMapping(path="/searchEmployee")
+    // public ModelAndView displayEmployee(@RequestParam String email){
+    //     ModelAndView view = new ModelAndView("search-form");
+    //     List<Employee>employees = employeeRepo.findAllByEmail(email);
+    //     view.addObject("employees", employees);
+
+    //     return view;
+    // }
 }

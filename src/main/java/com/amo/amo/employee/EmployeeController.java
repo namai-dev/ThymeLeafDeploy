@@ -3,6 +3,7 @@ package com.amo.amo.employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -29,6 +30,15 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
         return "redirect:/";
     }
+
+    // @GetMapping(path="/searchEmployees")
+    // public void searchByEmail(@RequestParam String email){
+    //     ModelAndView view = new ModelAndView("search-form");
+
+
+    //    List<Employee>employees =  employeeService.searchByEmail(email);
+    //    view.addObject("employees", employees);
+    // }
 
 
 

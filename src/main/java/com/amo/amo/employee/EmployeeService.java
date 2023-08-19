@@ -28,6 +28,11 @@ public class EmployeeService {
         employee.setName(name);
     }
 
+    public List<Employee>searchByEmail(String email){
+
+        return employeeRepo.findAllByEmail(email);
+    }
+
 
   
 

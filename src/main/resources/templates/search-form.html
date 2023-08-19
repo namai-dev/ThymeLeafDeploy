@@ -14,15 +14,23 @@
     </nav>
     <h1>Search</h1>
     <div class="container">
-      <form method="get" class="form-group">
+      <form method="get" class="form-group" th:object="${employees}">
         <div class="input-group">
-          <input type="search" class="form-control" placeholder="Enter email" />
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Enter email"
+            th:field="*{name}"
+          />
           <span class="input-group-append">
-            <button class="btn btn-outline-secondary bg-primary">search</button>
+            <button type="submit" class="btn btn-outline-secondary bg-primary">
+              search
+            </button>
           </span>
         </div>
       </form>
 
+      <br />
       <table class="table table-striped mt-5">
         <thead>
           <tr>
@@ -31,7 +39,10 @@
             <td>Contact</td>
           </tr>
         </thead>
+
+        <tbody></tbody>
       </table>
+
       <a th:href="@{/}" class="btn btn-primary">Back to List</a>
     </div>
   </body>
