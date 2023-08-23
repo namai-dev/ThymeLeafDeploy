@@ -1,11 +1,9 @@
 spring:
-  application:
-    name: pdf-converter
   datasource:
+    url: jdbc:postgresql://dpg-cjd2d8c5kgrc739qo200-a.oregon-postgres.render.com:5432/namaidb
+    username: namaidb_user
+    password: IUDMeEstcmqmii6KY5nWCI76bUy8NaFK
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/mydb
-    username: postgres
-    password: rajnamai
   jpa:
     hibernate:
       ddl-auto: create-drop
